@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>线形图</title>
+<meta charset="utf-8"/>
+    <link rel="stylesheet" href="../../dist/css/h8-charts.min.css"/>
+    <link rel="stylesheet" href="example.css"/>
+</head>
+<body>
+<div class="chart" id="bar"></div>
+<div class="chart" id="line"></div>
+<div class="chart" id="pie"></div>
+<div class="chart" id="column"></div>
+<div class="chart" id="bubble"></div>
+<div class="chart" id="area"></div>
+<div class="chart" id="timeline"></div>
+
+<script src="../../libs/jquery.js"></script>
+<script src="../../libs/underscore.js"></script>
+<script src="../../libs/d3.js"></script>
+<script src="../../libs/h8.min.js"></script>
+<script src="../../dist/js/h8-charts.js"></script>
+<script type="text/javascript">
+
+    (function(){
+
+        //离散的单系列值
+        var single_data = [
+                    {"key":"网公司","value":42},
+                    {"key":"分子公司","value":183},
+                    {"key":"建设单位","value":707},
+                    {"key":"区县局","value":758},
+                    {"key":"网公司1","value":422},
+                    {"key":"分子公司1","value":1183},
+                    {"key":"建设单位1","value":27},
+                    {"key":"区县局1","value":58}
+        ];
+
+        //离散的多系列值
+        var series_data = [
+            {"key":"","value":42,series:[{key:'网公司1',value:12},{key:'网公司2',value:30}]},
+            {"key":"分子公司","value":183,series:[{key:'网公司3',value:2},{key:'网公司4',value:1}]},
+            {"key":"分子公司","value":183,series:[{key:'网公司3',value:2},{key:'网公司4',value:1}]},
+            {"key":"分子公司","value":183,series:[{key:'网公司3',value:2},{key:'网公司4',value:1}]},
+            {"key":"分子公司","value":183,series:[{key:'网公司3',value:2},{key:'网公司4',value:1}]}
+        ]
+
+        //连续的单系列值
+        var  continuous_data = [
+                  {"key":+new Date('2014-01-01'),"value":42},
+                  {"key":+new Date('2014-01-02'),"value":183},
+                  {"key":+new Date('2014-01-03'),"value":707},
+                  {"key":+new Date('2014-01-04'),"value":127},
+                  {"key":+new Date('2014-01-05'),"value":987},
+                  {"key":+new Date('2014-01-06'),"value":23},
+                  {"key":+new Date('2014-01-07'),"value":707},
+                  {"key":+new Date('2014-01-08'),"value":747},
+                  {"key":+new Date('2014-01-09'),"value":12},
+                  {"key":+new Date('2014-01-10'),"value":734},
+                  {"key":+new Date('2014-01-11'),"value":234}
+        ];
+
+        var  continuous_series_data = [
+            {"key":+new Date('2014-01-01'),"value":0,series:
+                    [{key:'广东',value:'12'},{key:'广西',value:45},{key:'云南',value:13},{key:'海南',value:15},{key:'贵州',value:13}]},
+            {"key":+new Date('2014-01-02'),"value":0,series:
+            [{key:'广东',value:3},{key:'广西',value:9},{key:'云南',value:12},{key:'海南',value:12},{key:'贵州',value:20}]},
+            {"key":+new Date('2014-01-03'),"value":0,series:
+             [{key:'广东',value:25},{key:'广西',value:13},{key:'云南',value:10},{key:'海南',value:12},{key:'贵州',value:13}]},
+            {"key":+new Date('2014-01-04'),"value":0,series:
+                    [{key:'广东',value:34},{key:'广西',value:23},{key:'云南',value:40},{key:'海南',value:30},{key:'贵州',value:19}]}
+        ];
+
+        var h8bar = h8.charts.bar('#bar')
+                .values(single_data).labelReverse(true);
+
+//        //or like this
+//        var h8bar = h8.charts.bar({
+//            el:'#bar',
+//            values:single_data
+//        });
+
+        var h8line = h8.charts.line('#line').values(continuous_series_data);
+
+
+
+        var h8pie = h8.charts.pie('#pie')
+                .values(single_data);
+
+        var h8column = h8.charts.column('#column')
+                .values(single_data);
+
+//        var h8bubble = h8.charts.bubble('#bubble')
+//                .values(data);
+
+        var h8timeline = h8.charts.timeline('#timeline').values(continuous_data);
+
+        var h8area = h8.charts.area('#area').values(continuous_series_data);
+
+
+    })();
+
+</script>
+</body>
+</html>

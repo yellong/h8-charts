@@ -1,0 +1,256 @@
+.nvtooltip {
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  white-space: normal !important;
+  max-width: 300px;
+}
+.nvtooltip h3 {
+  font-size: 14px;
+}
+.h8-charts {
+  position: relative;
+}
+.h8-charts svg text {
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.h8-charts .header-wrapper * {
+  margin-right: 5px;
+}
+.h8-charts a {
+  cursor: pointer;
+  color: #0088cc;
+  text-decoration: none;
+}
+.h8-charts a:hover,
+.h8-charts a:focus {
+  color: #005580;
+  text-decoration: underline;
+}
+.h8-charts .lock,
+.h8-charts .unlock,
+.h8-charts .reset,
+.h8-charts .play,
+.h8-charts .pause {
+  display: inline-block;
+  *display: inline;
+  *zoom: 1;
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  background-position: center;
+  background-repeat: no-repeat;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.h8-charts .lock {
+  background-image: url(../img/icon-unlock.svg );
+}
+.h8-charts .unlock {
+  background-image: url(../img/icon-lock.svg );
+}
+.h8-charts .reset {
+  background-image: url(../img/icon-reset.svg );
+}
+.h8-charts .play.mode0 {
+  background-image: url(../img/icon-play-mode0.svg );
+}
+.h8-charts .play.mode1 {
+  background-image: url(../img/icon-play-mode1.svg );
+}
+.h8-charts .pause {
+  background-image: url(../img/icon-pause.svg );
+}
+.h8-charts .hide {
+  display: none;
+}
+.h8-charts .unselect {
+  fill: #bdbdbd !important;
+  stroke: #bdbdbd !important;
+}
+.h8-charts.h8-area svg,
+.h8-charts.h8-line svg,
+.h8-charts.h8-bar svg,
+.h8-charts.h8-column svg,
+.h8-charts.h8-bubble svg,
+.h8-charts.h8-timeline svg {
+  pointer-events: none;
+}
+.h8-charts.h8-area .nv-stackedWrap,
+.h8-charts.h8-line .nv-stackedWrap,
+.h8-charts.h8-bar .nv-stackedWrap,
+.h8-charts.h8-column .nv-stackedWrap,
+.h8-charts.h8-bubble .nv-stackedWrap,
+.h8-charts.h8-timeline .nv-stackedWrap,
+.h8-charts.h8-area .nv-linesWrap,
+.h8-charts.h8-line .nv-linesWrap,
+.h8-charts.h8-bar .nv-linesWrap,
+.h8-charts.h8-column .nv-linesWrap,
+.h8-charts.h8-bubble .nv-linesWrap,
+.h8-charts.h8-timeline .nv-linesWrap,
+.h8-charts.h8-area .nv-brush,
+.h8-charts.h8-line .nv-brush,
+.h8-charts.h8-bar .nv-brush,
+.h8-charts.h8-column .nv-brush,
+.h8-charts.h8-bubble .nv-brush,
+.h8-charts.h8-timeline .nv-brush,
+.h8-charts.h8-area .nv-barsWrap,
+.h8-charts.h8-line .nv-barsWrap,
+.h8-charts.h8-bar .nv-barsWrap,
+.h8-charts.h8-column .nv-barsWrap,
+.h8-charts.h8-bubble .nv-barsWrap,
+.h8-charts.h8-timeline .nv-barsWrap,
+.h8-charts.h8-area .nv-scatterWrap,
+.h8-charts.h8-line .nv-scatterWrap,
+.h8-charts.h8-bar .nv-scatterWrap,
+.h8-charts.h8-column .nv-scatterWrap,
+.h8-charts.h8-bubble .nv-scatterWrap,
+.h8-charts.h8-timeline .nv-scatterWrap,
+.h8-charts.h8-area .nv-distWrap,
+.h8-charts.h8-line .nv-distWrap,
+.h8-charts.h8-bar .nv-distWrap,
+.h8-charts.h8-column .nv-distWrap,
+.h8-charts.h8-bubble .nv-distWrap,
+.h8-charts.h8-timeline .nv-distWrap,
+.h8-charts.h8-area .nv-legendWrap,
+.h8-charts.h8-line .nv-legendWrap,
+.h8-charts.h8-bar .nv-legendWrap,
+.h8-charts.h8-column .nv-legendWrap,
+.h8-charts.h8-bubble .nv-legendWrap,
+.h8-charts.h8-timeline .nv-legendWrap,
+.h8-charts.h8-area .nv-controlsWrap,
+.h8-charts.h8-line .nv-controlsWrap,
+.h8-charts.h8-bar .nv-controlsWrap,
+.h8-charts.h8-column .nv-controlsWrap,
+.h8-charts.h8-bubble .nv-controlsWrap,
+.h8-charts.h8-timeline .nv-controlsWrap {
+  pointer-events: all;
+}
+.h8-charts.h8-pie .nv-pie .nv-slice {
+  cursor: pointer;
+}
+.h8-charts.h8-pie .nv-pie .nv-slice .nv-label * {
+  pointer-events: none;
+}
+.h8-charts.h8-pie .nv-pie .nv-slice .nv-label text {
+  fill: white !important;
+}
+.h8-charts.h8-pie .nv-pie .nv-slice path {
+  stroke-width: 0px !important;
+}
+.h8-charts.h8-bar .nv-multiBarHorizontalChart.single-legend .nv-x text {
+  display: none;
+}
+.h8-charts.h8-bar .nv-multiBarHorizontalChart.single-legend .nv-bar text {
+  pointer-events: none;
+  fill: white;
+  font-weight: normal;
+}
+.h8-charts.h8-bar .nv-multiBarHorizontalChart .nv-group {
+  fill-opacity: 1!important;
+}
+.h8-charts.h8-bar .nv-multiBarHorizontalChart .nv-group rect {
+  cursor: pointer;
+}
+.h8-charts.h8-bar .nv-multiBarHorizontalChart .nv-group .hover rect {
+  fill-opacity: .7;
+}
+.h8-charts.h8-bar.label-reverse .single-legend .nv-bar text {
+  fill: black;
+}
+.h8-charts.h8-column .nv-multiBarWithLegend .nv-group {
+  fill-opacity: 1!important;
+}
+.h8-charts.h8-column .nv-multiBarWithLegend .nv-group rect {
+  cursor: pointer;
+}
+.h8-charts.h8-column .nv-multiBarWithLegend .nv-group rect.hover {
+  fill-opacity: .7;
+}
+.h8-charts.h8-digit {
+  text-align: center;
+  font-weight: bold;
+  line-height: 1;
+  pointer-events: none;
+}
+.h8-charts.h8-digit .number {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 50%;
+  position: absolute;
+  top: 15%;
+  left: 0px;
+  width: 100%;
+}
+.h8-charts.h8-digit .description {
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 15%;
+  position: absolute;
+  top: 68%;
+  left: 0px;
+  width: 100%;
+}
+.h8-charts.h8-radar circle.background {
+  stroke: #DDD;
+  fill: #FFF;
+  stroke-width: 1;
+}
+.h8-charts.h8-radar .axis path {
+  fill: none;
+  stroke: #DDD;
+  stroke-width: 1;
+}
+.h8-charts.h8-radar .axisScale text {
+  display: none;
+}
+.h8-charts.h8-radar .axisScale line {
+  display: none;
+}
+.h8-charts.h8-radar .radar path {
+  transition: stroke-width 250ms linear, stroke-opacity 250ms linear, fill-opacity 250ms linear;
+  -moz-transition: stroke-width 250ms linear, stroke-opacity 250ms linear, fill-opacity 250ms linear;
+  -webkit-transition: stroke-width 250ms linear, stroke-opacity 250ms linear, fill-opacity 250ms linear;
+  stroke-width: 2;
+  fill-opacity: 0.2;
+  stroke-opacity: 0.5;
+}
+.h8-charts.h8-radar .radar path:hover {
+  stroke-width: 10;
+  stroke-opacity: 0.3;
+  fill-opacity: 0.4;
+}
+.h8-charts.h8-radar .radar .radarPoint {
+  fill: #fff;
+}
+.h8-charts.h8-radar .axisLabel {
+  font: 10px sans-serif;
+  text-transform: capitalize;
+  /*text-anchor: middle;*/
+  fill: #333;
+  stroke: none;
+}
+.h8-charts.h8-scale {
+  background: url(../img/example-scale.png) no-repeat center;
+}
+.h8-charts.h8-spark {
+  background: url(../img/example-spark.png) no-repeat center;
+}
+.h8-charts.h8-bullet {
+  background: url(../img/example-bullet.png) no-repeat center;
+}
+.h8-charts.h8-bubble .nv-scatterChart .nv-scatter .nv-groups .nv-group .nv-point-label {
+  stroke: rgba(0, 0, 0, 0);
+  fill: '#fff';
+  fill-opacity: '1.0';
+  font-weight: bold;
+  font-family: "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.h8-charts.h8-bubble .nv-scatterChart .nv-legendWrap * {
+  pointer-events: none;
+}
+.h8-charts.h8-bubble .nv-scatterChart .nv-point-paths * {
+  cursor: pointer;
+}
+.h8-charts.h8-timeline .nv-point-paths {
+  display: none;
+}

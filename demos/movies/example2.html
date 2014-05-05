@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>多表联动</title>
+<meta charset="utf-8"/>
+    <link rel="stylesheet" href="../../dist/css/h8-charts.min.css"/>
+    <link rel="stylesheet" href="example.css"/>
+</head>
+<body>
+
+<div class="chart digit" id="digit">
+    <span class="number"></span>
+    <span style="font-size: 35px">部电影</span>
+</div>
+<div class="count chart" id="count">
+    被选中:<span class="selected"></span>
+    &nbsp;&nbsp;总条数:<span class="total"></span>
+    &nbsp;&nbsp;|&nbsp;&nbsp;<a class="reset" title="重置全部"></a>
+</div>
+<div class="chart" id="bar">
+    <div class="title">豆瓣Top250的电影类型分布
+    <span class="reset"></span>
+    </div>
+</div>
+<div class="chart" id="bar2">
+    <div class="title">豆瓣Top250的电影中评分最高的10部电影
+        <span class="reset"></span></div>
+</div>
+<div class="chart" id="pie">
+    <div class="title">豆瓣Top250的电影国家地区分布
+        <span class="reset"></span></div>
+</div>
+<div class="chart" id="column">
+    <div class="title">豆瓣Top250的电影中评分平均分最高的10位导演
+        <span class="reset"></span></div>
+</div>
+<div class="chart" id="timeline">
+    <div class="title">年代时间轴
+        <a class="play mode1" title="看累积"></a>
+        <a class="play mode0" title="看变迁"></a>
+        <a class="pause" title="暂停"></a>
+        <span class="reset"></span></div>
+</div>
+<div class="chart" id="line">
+    <div class="title">豆瓣Top250的年代评分分布
+        <span class="reset"></span>
+    </div>
+</div>
+<div class="chart" id="bubble"></div>
+
+<script src="../../libs/jquery.js"></script>
+<script src="../../libs/underscore.js"></script>
+<script src="../../libs/d3.js"></script>
+<script src="../../libs/h8.min.js"></script>
+<script src="../../dist/js/h8-charts.js"></script>
+<script type="text/javascript" src="data_movies.js"></script>
+<script type="text/javascript">
+    (function(){
+       var transformData = function(data){
+           return _.map(data,function(item){
+               return {
+                   'id':item.id,
+                   '电影名':item.title,
+                   '年代':item.year,
+                   '类型':item.genres[0],
+                   '导演':item.directors[0].name,
+                   '主演':item.casts[0].name,
+                   '地区':item.countries[0],
+                   '评分':item.rating.average,
+                   '评分人数':item.ratings_count,
+                   '简介':item.summary,
+                   '评论数量':item.reviews_count
+               }
+           })
+       }
+       var data_movies = data_movies_1.concat(data_movies_2).concat(data_movies_3);
+       var test_data = transformData(data_movies);
+       var charts = h8.charts( test_data );
+
+        charts.digit({
+            el:'#digit',
+            group: h8.groups.all(),
+            value: h8.reduces.count().distinct( 'id' )
+        })
+
+        charts.count({
+            el:'#count'
+        });
+
+       charts.bar({
+           el:'#bar',
+           group:h8.groups.identity('类型'),
+           value:h8.reduces.count().distinct('id'),
+           labelReverse:true
+       });
+
+        charts.bar({
+            el:'#bar2',
+            group:h8.groups.identity('电影名'),
+            value:h8.reduces.sum('评分'),
+            top:10
+        });
+
+        charts.pie({
+            el:'#pie',
+            group:h8.groups.identity('地区'),
+            value:h8.reduces.count().distinct('id')
+        })
+
+        charts.line({
+            el:'#line',
+            group:h8.groups.identity('年代'),
+            value:h8.reduces.count().distinct('评分')
+        })
+
+        charts.column({
+            el:'#column',
+            group: h8.groups.identity('导演'),
+            value: h8.reduces.average('评分'),
+            top: 10,
+            rotateLabels:-20
+//                staggerLabels: true
+        })
+
+        charts.timeline({
+            el:'#timeline',
+            group: h8.groups.identity('年代'),
+            value: h8.reduces.count().distinct('评分')
+        })
+
+    })();
+
+</script>
+</body>
+</html>

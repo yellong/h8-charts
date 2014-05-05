@@ -1,0 +1,11 @@
+{
+  "name": "h8-charts-demo",
+  "version": "0.0.1",
+  "dependencies": {
+    "ya-csv": "~0.9.3",
+    "iconv-lite": "~0.2.11",
+    "jschardet": "~1.1.0",
+    "moment": "~2.5.1",
+    "underscore": "~1.6.0"
+  }
+}

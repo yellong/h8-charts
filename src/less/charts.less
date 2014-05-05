@@ -1,0 +1,231 @@
+@font-family-sans-serif:  "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+@font-family-monospace:   Menlo, Monaco, Consolas, "Courier New", monospace;
+@font-family-base:        @font-family-sans-serif;
+
+.user-select( @select ) {
+  -webkit-user-select: @select;
+  -moz-user-select: @select;
+  -ms-user-select: @select;
+  -o-user-select: @select;
+  user-select: @select;
+}
+
+.nvtooltip {
+  h3 { font-size: 14px; }
+  font-family: @font-family-base !important;
+  white-space: normal !important;
+  max-width: 300px;
+}
+
+.h8-charts {
+  position: relative;
+
+  svg text {
+    font-family: @font-family-base;
+  }
+
+  .header-wrapper * {
+    margin-right: 5px;
+  }
+
+  a {
+    cursor: pointer;
+    color: #0088cc;
+    text-decoration: none;
+    &:hover, &:focus {
+      color: #005580;
+      text-decoration: underline;
+    }
+  }
+
+  .lock, .unlock, .reset, .play, .pause {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    background-position: center;
+    background-repeat: no-repeat;
+    .user-select( none );
+  }
+  .lock       { background-image: url( ../img/icon-unlock.svg ); }
+  .unlock     { background-image: url( ../img/icon-lock.svg ); }
+  .reset      { background-image: url( ../img/icon-reset.svg ); }
+  .play.mode0 { background-image: url( ../img/icon-play-mode0.svg ); }
+  .play.mode1 { background-image: url( ../img/icon-play-mode1.svg ); }
+  .pause      { background-image: url( ../img/icon-pause.svg ); }
+  .hide       { display: none; }
+
+  .unselect {
+    fill: #bdbdbd !important;
+    stroke:#bdbdbd !important;
+  }
+
+  &.h8-area, &.h8-line, &.h8-bar, &.h8-column, &.h8-bubble, &.h8-timeline {  // fixOverFlow hacks
+    svg {
+      pointer-events: none;
+    }
+    .nv-stackedWrap, .nv-linesWrap, .nv-brush, .nv-barsWrap, .nv-scatterWrap, .nv-distWrap, .nv-legendWrap, .nv-controlsWrap {
+      pointer-events: all;
+    }
+  }
+
+  &.h8-pie .nv-pie {
+    .nv-slice {
+      cursor: pointer;
+      .nv-label {
+        * { pointer-events: none; }
+        text { fill: white !important; }
+      }
+      path { stroke-width: 0px !important; }
+    }
+  }
+
+  &.h8-bar .nv-multiBarHorizontalChart {
+    &.single-legend {
+      .nv-x {
+        text { display: none; }
+      }
+      .nv-bar {
+        text { pointer-events: none; fill: white; font-weight: normal; }
+      }
+    }
+    .nv-group {
+      fill-opacity: 1!important;
+      rect {
+        cursor: pointer;
+      }
+      .hover rect {
+        fill-opacity: .7;
+      }
+    }
+  }
+  &.h8-bar.label-reverse .single-legend .nv-bar text{ fill: black; }
+
+  &.h8-column .nv-multiBarWithLegend {
+    .nv-group {
+      fill-opacity: 1!important;
+      rect {
+        cursor: pointer;
+      }
+      rect.hover {
+        fill-opacity: .7;
+      }
+    }
+  }
+
+  &.h8-digit {
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    pointer-events: none;
+    .number {
+      font-family: @font-family-serif;
+      font-size: 50%;
+      position: absolute;
+      top: 15%;
+      left: 0px;
+      width: 100%;
+    }
+    .description {
+      font-family: @font-family-monospace;
+      font-size: 15%;
+      position: absolute;
+      top: 68%;
+      left: 0px;
+      width: 100%;
+    }
+  }
+
+  &.h8-radar {
+
+    circle.background {
+      stroke: #DDD;
+      fill: #FFF;
+      stroke-width: 1;
+    }
+    .axis path {
+      fill: none;
+      stroke: #DDD;
+      stroke-width: 1;
+    }
+    .axisScale text {
+      display: none;
+    }
+    .axisScale line {
+      display: none;
+    }
+    .radar path {
+      transition: stroke-width 250ms linear, stroke-opacity 250ms linear ,fill-opacity 250ms linear;
+      -moz-transition: stroke-width 250ms linear, stroke-opacity 250ms linear,fill-opacity 250ms linear;
+      -webkit-transition: stroke-width 250ms linear, stroke-opacity 250ms linear,fill-opacity 250ms linear;
+      stroke-width: 2;
+      fill-opacity: 0.2;
+      stroke-opacity: 0.5;
+
+      &:hover{
+        stroke-width: 10;
+        stroke-opacity: 0.3;
+        fill-opacity: 0.4;
+      }
+
+    }
+
+    .radar .radarPoint{
+//      stroke-opacity: 0.3;
+        fill: #fff;
+    }
+
+    .axisLabel {
+      font: 10px sans-serif;
+      text-transform: capitalize;
+      /*text-anchor: middle;*/
+      fill: #333;
+      stroke: none;
+    }
+  }
+
+  &.h8-scale {
+    background: url(../img/example-scale.png) no-repeat center;
+  }
+
+  &.h8-spark {
+    background: url(../img/example-spark.png) no-repeat center;
+  }
+
+  &.h8-heat {
+  //    background: url(../img/example-heat.png) no-repeat center;
+  }
+
+  &.h8-bullet {
+    background: url(../img/example-bullet.png) no-repeat center;
+  }
+
+  &.h8-bubble .nv-scatterChart {
+    .nv-scatter .nv-groups .nv-group .nv-point-label{
+      stroke:rgba(0,0,0,0);
+      fill:'#fff';
+      fill-opacity:'1.0';
+      font-weight: bold;
+      font-family: @font-family-base;
+    }
+
+    .nv-legendWrap *{
+      pointer-events:none;
+    }
+    .nv-point-paths * {
+      cursor: pointer;
+    }
+  }
+
+  &.h8-timeline {
+    .nv-point-paths{
+      display: none;
+    }
+  }
+}
+
+
+

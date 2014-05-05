@@ -1,0 +1,18 @@
+.use-png-icons .h8-charts .lock {
+  background-image: url(../img/icon-unlock.png );
+}
+.use-png-icons .h8-charts .unlock {
+  background-image: url(../img/icon-lock.png );
+}
+.use-png-icons .h8-charts .reset {
+  background-image: url(../img/icon-reset.png );
+}
+.use-png-icons .h8-charts .play.mode0 {
+  background-image: url(../img/icon-play-mode0.png );
+}
+.use-png-icons .h8-charts .play.mode1 {
+  background-image: url(../img/icon-play-mode1.png );
+}
+.use-png-icons .h8-charts .pause {
+  background-image: url(../img/icon-pause.png );
+}
